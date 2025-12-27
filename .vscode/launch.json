@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Chrome against Vite",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:5000",
+      "webRoot": "${workspaceFolder}/client",
+      "preLaunchTask": "Dev: Client (Vite)"
+    }
+  ]
+}
