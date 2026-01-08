@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.vscode
+.replit
+attached_assets
+Dockerfile
+.dockerignore
+npm-debug.log

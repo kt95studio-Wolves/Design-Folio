@@ -62,3 +62,4 @@
 - [x] **Public API:** GET routes for Blog and Work.
 - [x] **Contact Form:** Implementation with Zod validation and Resend email.
 - [x] **Mobile Config:** Capacitor dependencies installed.
+- [x] **Deployment:** Dockerfile created with multi-stage build.
