@@ -3,12 +3,29 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { insertContactMessageSchema } from "@shared/schema";
 import { getUncachableResendClient } from "./resend";
+import { ollama } from "./ollama";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
   
+  // AI Chat endpoint
+  app.post("/api/chat", async (req, res) => {
+    try {
+      const { messages } = req.body;
+      if (!Array.isArray(messages)) {
+        return res.status(400).json({ message: "Messages array is required" });
+      }
+
+      const response = await ollama.chat(messages);
+      res.json({ role: "assistant", content: response });
+    } catch (error: any) {
+      console.error("AI Chat error:", error);
+      res.status(500).json({ message: error.message || "Failed to generate response" });
+    }
+  });
+
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {
